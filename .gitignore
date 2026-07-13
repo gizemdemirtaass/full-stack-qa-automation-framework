@@ -1,0 +1,12 @@
+node_modules/
+.playwright-browsers/
+target/
+api-tests/target/
+allure-results/
+allure-report/
+playwright-report/
+test-results/
+.DS_Store
+*.log
+.idea/
+.vscode/

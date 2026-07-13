@@ -1,0 +1,53 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1:3000/health"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+
+  ui-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.playwright
+    environment:
+      BASE_URL: http://app:3000
+      SKIP_WEB_SERVER: "1"
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./allure-results:/work/allure-results
+      - ./playwright-report:/work/playwright-report
+
+  api-tests:
+    image: maven:3.9.11-eclipse-temurin-21
+    working_dir: /work
+    command: mvn -f api-tests/pom.xml test
+    environment:
+      API_BASE_URL: http://app:3000
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - .:/work
+      - maven-cache:/root/.m2
+
+  performance-tests:
+    image: grafana/k6:latest
+    command: run /scripts/storefront-load.js
+    environment:
+      BASE_URL: http://app:3000
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./performance-tests:/scripts:ro
+
+volumes:
+  maven-cache:

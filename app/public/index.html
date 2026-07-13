@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quality Market</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header>
+      <div>
+        <p class="eyebrow">QA AUTOMATION PORTFOLIO</p>
+        <h1>Quality Market</h1>
+      </div>
+      <p class="cart" aria-live="polite">Cart <strong data-testid="cart-count">0</strong></p>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">RELIABLE SHOPPING</p>
+          <h2>Products tested from browser to API.</h2>
+          <p>A self-contained storefront used to demonstrate UI, API, contract and performance testing.</p>
+        </div>
+        <label>Category
+          <select data-testid="category-filter">
+            <option value="">All</option>
+            <option value="Audio">Audio</option>
+            <option value="Office">Office</option>
+          </select>
+        </label>
+      </section>
+      <section>
+        <h2>Products</h2>
+        <div class="products" data-testid="product-list"></div>
+      </section>
+      <section class="checkout">
+        <div>
+          <p class="eyebrow">CHECKOUT</p>
+          <h2>Create a test order</h2>
+        </div>
+        <form data-testid="checkout-form">
+          <label>Email <input data-testid="email" name="email" type="email" required></label>
+          <button type="submit">Place order</button>
+        </form>
+        <p data-testid="order-status" aria-live="polite"></p>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": ["items", "count"],
+  "additionalProperties": false,
+  "properties": {
+    "count": { "type": "integer", "minimum": 0 },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category", "price", "stock"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "category": { "type": "string", "enum": ["Audio", "Office"] },
+          "price": { "type": "number", "minimum": 0, "exclusiveMinimum": true },
+          "stock": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

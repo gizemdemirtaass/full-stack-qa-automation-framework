@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/playwright:v1.61.0-noble
+WORKDIR /work
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY playwright.config.ts tsconfig.json ./
+COPY ui-tests ./ui-tests
+CMD ["npx", "playwright", "test", "--project=chromium"]
