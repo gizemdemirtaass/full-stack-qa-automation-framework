@@ -1,8 +1,8 @@
 {
-  "name": "qa-automation-portfolio",
+  "name": "full-stack-qa-automation-framework",
   "version": "1.0.0",
   "private": true,
-  "description": "End-to-end QA automation portfolio covering UI, API, contract and performance testing.",
+  "description": "Full-stack QA automation framework covering UI, API, contract and performance testing.",
   "scripts": {
     "start": "node app/server.js",
     "typecheck": "tsc --noEmit",

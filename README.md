@@ -1,4 +1,4 @@
-# QA Automation Portfolio
+# Full-Stack QA Automation Framework
 
 A self-contained quality engineering project by **Gizem Demirtas**. It demonstrates how UI, API, contract and performance tests can be combined into repeatable CI/CD quality gates.
 
@@ -29,7 +29,7 @@ flowchart LR
     CI --> PERF
 ```
 
-The application uses only Node.js core modules, so the portfolio remains focused on test architecture instead of application dependencies.
+The application uses only Node.js core modules, so the framework remains focused on test architecture instead of application dependencies.
 
 ## Repository layout
 
@@ -45,6 +45,12 @@ docker-compose.yml         Reproducible local stack
 ```
 
 ## Run locally
+
+On macOS, double-click `run-local.command` and open [http://localhost:3000](http://localhost:3000). To run it from Terminal instead:
+
+```bash
+npm start
+```
 
 ### Prerequisites
 
