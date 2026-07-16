@@ -2,6 +2,8 @@
 
 *A practical quality engineering project combining browser, API, contract, performance, and CI testing.*
 
+![Full-Stack QA Automation Framework cover](assets/full-stack-qa-medium-cover.png)
+
 Modern quality engineering is broader than automating a few browser scenarios. A reliable test strategy needs fast service-level feedback, contract protection, realistic user journeys, measurable performance thresholds, useful failure artifacts, and repeatable execution in CI.
 
 I built the **Full-Stack QA Automation Framework** as a hands-on project to bring these layers together around a small, self-contained storefront called **Quality Market**.
