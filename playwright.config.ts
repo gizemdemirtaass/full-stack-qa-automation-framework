@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const baseURL = process.env.BASE_URL ?? 'http://127.0.0.1:3000';
+const slowMo = Number(process.env.PW_SLOW_MO ?? 0);
 
 export default defineConfig({
   testDir: './ui-tests/specs',
@@ -17,6 +18,7 @@ export default defineConfig({
   ],
   use: {
     baseURL,
+    launchOptions: { slowMo },
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure'

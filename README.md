@@ -68,6 +68,18 @@ npm run typecheck
 npm run test:ui
 ```
 
+To watch the Chromium run sequentially at a slower pace:
+
+```bash
+npm run test:ui:watch
+```
+
+For step-by-step execution with Playwright Inspector:
+
+```bash
+npm run test:ui:debug
+```
+
 Playwright starts the application automatically. The HTML report is written to `playwright-report/`, while Allure results are written to `allure-results/`.
 
 ### API and contract tests
