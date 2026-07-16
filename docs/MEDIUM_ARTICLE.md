@@ -1,5 +1,7 @@
 # Building a Full-Stack QA Automation Framework: From UI Flows to CI Quality Gates
 
+*A practical quality engineering project combining browser, API, contract, performance, and CI testing.*
+
 Modern quality engineering is broader than automating a few browser scenarios. A reliable test strategy needs fast service-level feedback, contract protection, realistic user journeys, measurable performance thresholds, useful failure artifacts, and repeatable execution in CI.
 
 I built the **Full-Stack QA Automation Framework** as a hands-on project to bring these layers together around a small, self-contained storefront called **Quality Market**.
@@ -92,7 +94,7 @@ The first test calls `GET /api/products` and verifies:
 - Four returned products
 - The expected response structure using JSON Schema
 
-The category-filter test sends `category=Audio` and checks that:
+The category filtering test sends `category=Audio` and checks that:
 
 - Two products are returned
 - Every returned product belongs to the Audio category
@@ -105,7 +107,7 @@ The negative product test requests `/api/products/999` and verifies:
 
 ### Order lifecycle tests
 
-The positive order test creates a new order with `POST /api/orders`. It checks the `201` response, UUID-shaped order ID, `CREATED` status, and creation timestamp. It then extracts the generated ID and retrieves the same order with `GET /api/orders/{id}`.
+The positive order test creates a new order with `POST /api/orders`. It checks the `201` response, UUID-formatted order ID, `CREATED` status, and creation timestamp. It then extracts the generated ID and retrieves the same order with `GET /api/orders/{id}`.
 
 This is a service-level end-to-end flow because data created in one request is validated through a second endpoint.
 
@@ -120,7 +122,7 @@ BUILD SUCCESS
 
 ## Contract testing with OpenAPI and JSON Schema
 
-Functional assertions confirm individual values, but they may not detect an unexpected response-shape change. For this reason, the product-list response is also validated against a JSON Schema.
+Functional assertions confirm individual values, but they may not detect an unexpected change in the response structure. For this reason, the product-list response is also validated against a JSON Schema.
 
 The schema requires:
 
@@ -139,7 +141,7 @@ The k6 scenario gradually increases the number of virtual users to five, holds t
 The release thresholds are explicit:
 
 - Failed-request rate below 1%
-- Successful-check rate above 99%
+- Successful check rate above 99%
 - p95 response time below 500 ms
 
 A local verification completed **300 requests and 600 checks with zero failures**. The purpose is not to claim production-scale capacity; it is to demonstrate how measurable performance expectations can become an automated quality gate.
@@ -224,11 +226,10 @@ npm run test:performance
 
 ## What comes next
 
-The next improvements I plan to explore include authentication and role-based scenarios, accessibility testing with axe-core, test trend history, and scheduled regression execution against a hosted environment.
+The next improvements I plan to explore include authentication and role-based scenarios, accessibility testing with axe-core, historical test trends, and scheduled regression execution against a hosted environment.
 
-Building this project reinforced an important quality-engineering principle for me: a strong automation framework is not defined by one tool. It is defined by how effectively different testing layers work together to provide fast, explainable, and repeatable feedback.
+Building this project reinforced an important quality engineering principle for me: a strong automation framework is not defined by one tool. It is defined by how effectively different testing layers work together to provide fast, explainable, and repeatable feedback.
 
 If you would like to review the implementation, test strategy, or CI pipeline, the complete project is available here:
 
 https://github.com/gizemdemirtaass/full-stack-qa-automation-framework
-
